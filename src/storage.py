@@ -1,3 +1,4 @@
+from model import Wallet
 import json
 
 def save_wallet(wallet):
@@ -10,3 +11,16 @@ def save_wallet(wallet):
 
     with open("data/wallets.json", "w") as file:
         json.dump(data, file, indent=4)
+
+
+def load_wallet():
+    with open("data/wallet.json", "r") as file:
+        data = json.load(file)
+
+    wallet = Wallet(
+        data["wallet_id"],
+        data["owner"],data["balance"]
+    )
+
+    wallet.history = data["history"]
+    return wallet
