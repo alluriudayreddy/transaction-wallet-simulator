@@ -3,7 +3,9 @@ from operations import deposit, withdraw, transfer
 from storage import save_wallet, load_wallet
 from helpers import generate_wallet_id, show_wallet, show_history
 
+
 wallets = {}
+
 
 while True:
     print("\n--- Wallet Menu ---")
@@ -17,13 +19,17 @@ while True:
     print("8. Load Wallet")
     print("9. Exit")
 
+
     choice = input("Enter choice: ")
+
 
     if choice == "1":
         owner = input("Enter owner name: ")
         wallet_id = generate_wallet_id()
         wallets[wallet_id] = Wallet(wallet_id, owner, 0)
         print(f"Wallet created with ID: {wallet_id}")
+
+
 
     elif choice == "2":
         wallet_id = input("Enter wallet ID: ")
@@ -38,6 +44,8 @@ while True:
         else:
             print("Wallet ID not found")
 
+
+
     elif choice == "3":
         wallet_id = input("Enter wallet ID: ")
 
@@ -50,6 +58,8 @@ while True:
                 print(e)
         else:
             print("Wallet ID not found")
+
+
 
     elif choice == "4":
         sender_id = input("Enter sender wallet ID: ")
@@ -65,6 +75,8 @@ while True:
         else:
             print("Invalid sender or receiver ID")
 
+
+
     elif choice == "5":
         wallet_id = input("Enter wallet ID: ")
 
@@ -73,6 +85,8 @@ while True:
         else:
             print("Wallet ID not found")
 
+
+
     elif choice == "6":
         wallet_id = input("Enter wallet ID: ")
 
@@ -80,6 +94,8 @@ while True:
             show_history(wallets[wallet_id])
         else:
             print("Wallet ID not found")
+
+
 
     elif choice == "7":
         wallet_id = input("Enter wallet ID: ")
@@ -90,14 +106,20 @@ while True:
         else:
             print("Wallet ID not found")
 
+
+
     elif choice == "8":
         loaded_wallet = load_wallet()
         wallets[loaded_wallet.wallet_id] = loaded_wallet
         print("Wallet loaded")
 
+
+
     elif choice == "9":
         print("Exiting...")
         break
+
+
 
     else:
         print("Invalid choice")
