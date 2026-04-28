@@ -42,4 +42,11 @@ while True:
 
 
 
-    
+    elif choice == "3":
+        wallet_id = input("Enter wallet ID: ")
+        amount = float(input("Enter amount: "))
+        try:
+            withdraw(wallets[wallet_id], amount)
+            print("withdraw successful.")
+        except ValueError as e:
+            print(e)
