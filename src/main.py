@@ -62,4 +62,10 @@ while True:
             print("Transfer successful.")
         except ValueError as e:
             print(e)
-            
+
+
+
+    elif choice == "5":
+        wallet_id = input("Enter wallet ID: ")
+        show_wallet(wallets[wallet_id])
+        
