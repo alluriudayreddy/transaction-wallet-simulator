@@ -1,6 +1,6 @@
 from model import Wallet
 from operations import deposit, withdraw, transfer
-from storage import save_wallet, load_wallet
+from storage import save_wallets, load_wallets
 from helpers import generate_wallet_id, show_wallet, show_history
 
 
@@ -22,13 +22,12 @@ while True:
 
     choice = input("Enter choice: ")
 
-
     if choice == "1":
         owner = input("Enter owner name: ")
         wallet_id = generate_wallet_id()
         wallets[wallet_id] = Wallet(wallet_id, owner, 0)
         print(f"Wallet created with ID: {wallet_id}")
-
+        print(wallets.keys())
 
 
     elif choice == "2":
@@ -96,23 +95,15 @@ while True:
             print("Wallet ID not found")
 
 
-
     elif choice == "7":
-        wallet_id = input("Enter wallet ID: ")
-
-        if wallet_id in wallets:
-            save_wallet(wallets[wallet_id])
-            print("Wallet saved")
-        else:
-            print("Wallet ID not found")
-
-
+        print(wallets)
+        print(wallets.keys())
+        save_wallets(wallets)
+        print("All wallets saved")
 
     elif choice == "8":
-        loaded_wallet = load_wallet()
-        wallets[loaded_wallet.wallet_id] = loaded_wallet
-        print("Wallet loaded")
-
+        wallets = load_wallets()
+        print("All wallets loaded")
 
 
     elif choice == "9":

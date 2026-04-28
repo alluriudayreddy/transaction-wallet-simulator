@@ -1,10 +1,20 @@
 {
-    "wallet_id": "W001",
-    "owner": "Danam",
-    "balance": 1000,
-    "history": [
-        "Deposited 500",
-        "Transferred 300 to Alice",
-        "Withdrew 200"
-    ]
+    "W1043": {
+        "wallet_id": "W1043",
+        "owner": "danam",
+        "balance": 964187.0,
+        "history": [
+            "Deposited 987643.0",
+            "Withdrew 23456.0"
+        ]
+    },
+    "W5181": {
+        "wallet_id": "W5181",
+        "owner": "Vijay",
+        "balance": 6522.0,
+        "history": [
+            "Deposited 8954.0",
+            "Withdrew 2432.0"
+        ]
+    }
 }

@@ -1,7 +1,7 @@
 import random
 
 def generate_wallet_id():
-    return f'W{random.randint(100,999)}'
+    return f'W{random.randint(1000,9999)}'
 
 
 def show_wallet(wallet):
