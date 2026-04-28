@@ -74,4 +74,11 @@ while True:
     elif choice == "6":
         wallet_id = input("Enter wallet ID: ")
         show_history(wallets[wallet_id])
+
+
+
+    elif choice == "7":
+        wallet_id = input("Enter wallet ID: ")
+        save_wallet(wallets[wallet_id])
+        print("Wallet saved.")
         
