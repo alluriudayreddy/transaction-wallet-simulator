@@ -81,4 +81,11 @@ while True:
         wallet_id = input("Enter wallet ID: ")
         save_wallet(wallets[wallet_id])
         print("Wallet saved.")
+
+
+
+    elif choice == "8":
+        loaded_wallet =  load_wallet()
+        wallets[loaded_wallet.wallet_id] = loaded_wallet
+        print("Wallet loaded.")
         
