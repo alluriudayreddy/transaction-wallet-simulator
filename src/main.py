@@ -1,16 +1,16 @@
 from model import Wallet
 from operations import deposit, withdraw
+from storage import save_wallet, load_wallet
 
+w1=Wallet("W001", "Danam", 1000)
 
-w1 = Wallet("w1", "Danam", 1280)
+deposit(w1, 500)
+withdraw(w1, 200)
 
-try:
-    deposit(w1, 300)
-    withdraw(w1, 200)
-    withdraw(w1, 5000)
+save_wallet(w1)
 
-except ValueError as e:
-    print("Error:", e)
+loaded_wallet = load_wallet()
 
-print(f'balance {w1.balance}')
-print("History:", w1.history)
+print(f'Owner: {loaded_wallet.owner}')
+print(f'balance: {loaded_wallet.balance}')
+print(f'History: {loaded_wallet.history}')

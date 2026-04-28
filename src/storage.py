@@ -13,13 +13,15 @@ def save_wallet(wallet):
         json.dump(data, file, indent=4)
 
 
+
 def load_wallet():
-    with open("data/wallet.json", "r") as file:
+    with open("data/wallets.json", "r") as file:
         data = json.load(file)
 
     wallet = Wallet(
         data["wallet_id"],
-        data["owner"],data["balance"]
+        data["owner"],
+        data["balance"]
     )
 
     wallet.history = data["history"]

@@ -1,0 +1,9 @@
+{
+    "wallet_id": "W001",
+    "owner": "Danam",
+    "balance": 1300,
+    "history": [
+        "Deposited 500",
+        "Withdrew 200"
+    ]
+}
