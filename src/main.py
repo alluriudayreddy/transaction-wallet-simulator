@@ -68,4 +68,10 @@ while True:
     elif choice == "5":
         wallet_id = input("Enter wallet ID: ")
         show_wallet(wallets[wallet_id])
+
+
+
+    elif choice == "6":
+        wallet_id = input("Enter wallet ID: ")
+        show_history(wallets[wallet_id])
         
