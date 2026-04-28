@@ -88,4 +88,9 @@ while True:
         loaded_wallet =  load_wallet()
         wallets[loaded_wallet.wallet_id] = loaded_wallet
         print("Wallet loaded.")
-        
+
+
+
+    elif choice == "9":
+        print("Exiting....")
+        break
