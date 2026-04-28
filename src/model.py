@@ -4,3 +4,4 @@ class Wallet:
         self.owner = owner
         self.balance = balance
         self.history =  []
+        
