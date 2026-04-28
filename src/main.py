@@ -50,3 +50,16 @@ while True:
             print("withdraw successful.")
         except ValueError as e:
             print(e)
+
+
+
+    elif choice == "4":
+        sender_id = input("Enter sender wallet ID: ")
+        receiver_id = input("Enter receiver wallet ID: ")
+        amount = float(input("Enter amount: "))
+        try:
+            transfer(wallets[sender_id], wallets[receiver_id], amount)
+            print("Transfer successful.")
+        except ValueError as e:
+            print(e)
+            
