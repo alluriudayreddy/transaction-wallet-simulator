@@ -28,3 +28,18 @@ while True:
         wallet_id = generate_wallet_id()
         wallets[wallet_id] = Wallet(wallet_id, owner, 0)
         print(f'Wallet created with ID: {wallet_id}')
+
+
+
+    elif choice == "2":
+        wallet_id = input("Enter wallet ID: ")
+        amount = float(input("Enter amount: "))
+        try:
+            deposit(wallets[wallet_id], amount)
+            print("Deposit successful.")
+        except ValueError as e:
+            print(e)
+
+
+
+    
