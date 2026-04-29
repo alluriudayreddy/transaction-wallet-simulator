@@ -25,38 +25,38 @@ while True:
     print("9. Show All Wallets")
     print("10. Exit")
 
-    choice = input("Enter choice: ")
+    menu_choice = input("Enter choice: ")
 
-    if choice == "1":
+    if menu_choice == "1":
         handle_create_wallet(wallets)
 
-    elif choice == "2":
+    elif menu_choice == "2":
         handle_deposit(wallets)
 
-    elif choice == "3":
+    elif menu_choice == "3":
         handle_withdraw(wallets)
 
-    elif choice == "4":
+    elif menu_choice == "4":
         handle_transfer(wallets)
 
-    elif choice == "5":
+    elif menu_choice == "5":
         handle_show_wallet(wallets)
 
-    elif choice == "6":
+    elif menu_choice == "6":
         handle_show_history(wallets)
 
-    elif choice == "7":
+    elif menu_choice == "7":
         handle_save_wallets(wallets)
 
-    elif choice == "8":
+    elif menu_choice == "8":
         wallets = handle_load_wallets()
 
-    elif choice == "9":
+    elif menu_choice == "9":
         handle_show_all_wallets(wallets)
 
-    elif choice == "10":
+    elif menu_choice == "10":
         print("Exiting...")
         break
 
     else:
-        print("Invalid choice")
+        print("Invalid menu choice")
