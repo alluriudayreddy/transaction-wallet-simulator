@@ -6,14 +6,14 @@ def save_wallets(wallets):
 
     for wallet_id, wallet in wallets.items():
         data[wallet_id] = {
-            "wallet_id": wallet.wallet_id,
-            "owner": wallet.owner,
-            "balance": wallet.balance,
-            "history": wallet.history
+            "Wallet ID": wallet.wallet_id,
+            "Owner": wallet.owner,
+            "Balance": wallet.balance,
+            "History": wallet.history
         }
 
-    with open("data/wallets.json", "w") as file:
-        json.dump(data, file, indent=4)
+        with open("data/wallets.json", "w") as file:
+            json.dump(data, file, indent=4)
 
 
 def load_wallets():
