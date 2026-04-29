@@ -10,7 +10,6 @@ def handle_create_wallet(all_wallets):
 
     all_wallets[wallet_id] = WalletAccount(wallet_id, owner_name, 0)
     print(f"Wallet created with ID: {wallet_id}")
-    print(f"Wallets currently in memory: {len(all_wallets)}")
 
 
 def handle_deposit(all_wallets):
@@ -82,6 +81,7 @@ def handle_save_wallets(all_wallets):
 def handle_load_wallets():
     all_wallets = load_wallets()
     print("All wallets loaded successfully")
+    show_all_wallets(all_wallets)
     return all_wallets
 
 

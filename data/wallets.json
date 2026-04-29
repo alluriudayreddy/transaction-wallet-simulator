@@ -16,5 +16,14 @@
             "Deposited 27424.0",
             "Withdrew 3232.0"
         ]
+    },
+    "W3974": {
+        "wallet_id": "W3974",
+        "owner": "Vijay",
+        "balance": 4773.0,
+        "history": [
+            "Deposited 5346.0",
+            "Withdrew 573.0"
+        ]
     }
 }
