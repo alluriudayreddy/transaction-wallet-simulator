@@ -1,35 +1,36 @@
-from model import Wallet
+from model import WalletAccount
 import json
 
-def save_wallets(wallets):
+
+def save_wallets(all_wallets):
     wallets_data = {}
 
-    for wallet_id, wallet_obj in wallets.items():
+    for wallet_id, wallet_account in all_wallets.items():
         wallets_data[wallet_id] = {
-            "wallet ID": wallet_obj.wallet_id,
-            "owner": wallet_obj.owner,
-            "balance": wallet_obj.balance,
-            "history": wallet_obj.history
+            "wallet_id": wallet_account.wallet_id,
+            "owner": wallet_account.owner,
+            "balance": wallet_account.balance,
+            "history": wallet_account.history
         }
 
-        with open("data/wallets.json", "w") as file:
-            json.dump(wallets_data, file, indent=4)
+    with open("data/wallets.json", "w") as file:
+        json.dump(wallets_data, file, indent=4)
 
 
 def load_wallets():
     with open("data/wallets.json", "r") as file:
         wallets_data = json.load(file)
 
-    wallets = {}
+    all_wallets = {}
 
-    for wallet_id, wallet_info in wallets_data.items():
-        wallet_obj = Wallet(
-            wallet_info["wallet ID"],
-            wallet_info["owner"],
-            wallet_info["balance"]
+    for wallet_id, wallet_data in wallets_data.items():
+        wallet_account = WalletAccount(
+            wallet_data["wallet_id"],
+            wallet_data["owner"],
+            wallet_data["balance"]
         )
 
-        wallet_obj.history = wallet_info["history"]
-        wallets[wallet_id] = wallet_obj
+        wallet_account.history = wallet_data["history"]
+        all_wallets[wallet_id] = wallet_account
 
-    return wallets
+    return all_wallets
