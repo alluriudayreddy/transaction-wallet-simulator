@@ -1,11 +1,16 @@
-from model import Wallet
-from operations import deposit, withdraw, transfer
-from storage import save_wallets, load_wallets
-from helpers import generate_wallet_id, show_wallet, show_history
-
+from handlers import (
+    handle_create_wallet,
+    handle_deposit,
+    handle_withdraw,
+    handle_transfer,
+    handle_show_wallet,
+    handle_show_history,
+    handle_save_wallets,
+    handle_load_wallets,
+    handle_show_all_wallets
+)
 
 wallets = {}
-
 
 while True:
     print("\n--- Wallet Menu ---")
@@ -15,102 +20,43 @@ while True:
     print("4. Transfer")
     print("5. Show Wallet")
     print("6. Show History")
-    print("7. Save Wallet")
-    print("8. Load Wallet")
-    print("9. Exit")
-
+    print("7. Save Wallets")
+    print("8. Load Wallets")
+    print("9. Show All Wallets")
+    print("10. Exit")
 
     choice = input("Enter choice: ")
 
     if choice == "1":
-        owner = input("Enter owner name: ")
-        wallet_id = generate_wallet_id()
-        wallets[wallet_id] = Wallet(wallet_id, owner, 0)
-        print(f"Wallet created with ID: {wallet_id}")
-        print(wallets.keys())
-
+        handle_create_wallet(wallets)
 
     elif choice == "2":
-        wallet_id = input("Enter wallet ID: ")
-
-        if wallet_id in wallets:
-            amount = float(input("Enter amount: "))
-            try:
-                deposit(wallets[wallet_id], amount)
-                print("Deposit successful")
-            except ValueError as e:
-                print(e)
-        else:
-            print("Wallet ID not found")
-
-
+        handle_deposit(wallets)
 
     elif choice == "3":
-        wallet_id = input("Enter wallet ID: ")
-
-        if wallet_id in wallets:
-            amount = float(input("Enter amount: "))
-            try:
-                withdraw(wallets[wallet_id], amount)
-                print("Withdrawal successful")
-            except ValueError as e:
-                print(e)
-        else:
-            print("Wallet ID not found")
-
-
+        handle_withdraw(wallets)
 
     elif choice == "4":
-        sender_id = input("Enter sender wallet ID: ")
-        receiver_id = input("Enter receiver wallet ID: ")
-
-        if sender_id in wallets and receiver_id in wallets:
-            amount = float(input("Enter amount: "))
-            try:
-                transfer(wallets[sender_id], wallets[receiver_id], amount)
-                print("Transfer successful")
-            except ValueError as e:
-                print(e)
-        else:
-            print("Invalid sender or receiver ID")
-
-
+        handle_transfer(wallets)
 
     elif choice == "5":
-        wallet_id = input("Enter wallet ID: ")
-
-        if wallet_id in wallets:
-            show_wallet(wallets[wallet_id])
-        else:
-            print("Wallet ID not found")
-
-
+        handle_show_wallet(wallets)
 
     elif choice == "6":
-        wallet_id = input("Enter wallet ID: ")
-
-        if wallet_id in wallets:
-            show_history(wallets[wallet_id])
-        else:
-            print("Wallet ID not found")
-
+        handle_show_history(wallets)
 
     elif choice == "7":
-        print(wallets)
-        print(wallets.keys())
-        save_wallets(wallets)
-        print("All wallets saved")
+        handle_save_wallets(wallets)
 
     elif choice == "8":
-        wallets = load_wallets()
-        print("All wallets loaded")
-
+        wallets = handle_load_wallets()
 
     elif choice == "9":
+        handle_show_all_wallets(wallets)
+
+    elif choice == "10":
         print("Exiting...")
         break
-
-
 
     else:
         print("Invalid choice")
