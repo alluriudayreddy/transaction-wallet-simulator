@@ -1,7 +1,14 @@
 import random
 
-def generate_wallet_id():
-    return f'W{random.randint(1000,9999)}'
+
+def generate_wallet_id(all_wallets):
+    if not isinstance(all_wallets, dict):
+        raise TypeError("all_wallets must be a dictionary of wallet_id -> WalletAccount")
+
+    while True:
+        wallet_id = f'W{random.randint(1000,9999)}'
+        if wallet_id not in all_wallets:
+            return wallet_id
 
 
 def show_wallet(wallet_account):

@@ -6,10 +6,11 @@ from helpers import generate_wallet_id, show_wallet, show_history, show_all_wall
 
 def handle_create_wallet(all_wallets):
     owner_name = input("Enter owner name: ")
-    wallet_id = generate_wallet_id()
+    wallet_id = generate_wallet_id(all_wallets)
 
     all_wallets[wallet_id] = WalletAccount(wallet_id, owner_name, 0)
     print(f"Wallet created with ID: {wallet_id}")
+    print(f"Wallets currently in memory: {len(all_wallets)}")
 
 
 def handle_deposit(all_wallets):
