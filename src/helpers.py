@@ -14,3 +14,9 @@ def show_history(wallet):
     print("History:")
     for item in wallet.history:
         print(item)
+
+
+def show_all_wallets(wallets):
+    print("All Wallets: ")
+    for wallet_id, wallet in wallets.items():
+        print(f'{wallet_id}: {wallet.owner} - Balance: {wallet.balance} - History: {wallet.history}')
