@@ -33,7 +33,9 @@ def load_wallets():
                 wallet_data["balance"]
             )
 
-            wallet_account.history = wallet_data["history"]
+            for item in wallet_data["history"]:
+                wallet_account.add_history(item)
+
             all_wallets[wallet_id] = wallet_account
 
         return all_wallets
