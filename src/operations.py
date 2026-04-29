@@ -1,34 +1,34 @@
-def deposit(wallet, amount):
+def deposit(wallet_account, amount):
     if amount <= 0:
         raise ValueError("Deposit amount must be positive.")
-    wallet.balance += amount
-    wallet.history.append(f'Deposited {amount}')
-    return wallet.balance
+    wallet_account.balance += amount
+    wallet_account.history.append(f'Deposited {amount}')
+    return wallet_account.balance
 
 
-def withdraw(wallet, amount):
+def withdraw(wallet_account, amount):
     if amount <= 0:
         raise ValueError("Withdrawal amount must be positive.")
     
-    if wallet.balance < amount:
+    if wallet_account.balance < amount:
         raise ValueError("Insufficient funds.")
     
-    wallet.balance -= amount
-    wallet.history.append(f'Withdrew {amount}')
-    return wallet.balance
+    wallet_account.balance -= amount
+    wallet_account.history.append(f'Withdrew {amount}')
+    return wallet_account.balance
 
 
-def transfer(sender_wallet, receiver_wallet, amount):
+def transfer(sender_wallet_account, receiver_wallet_account, amount):
     if amount <= 0:
         raise ValueError("Transfer amount must be positive.")
     
-    if sender_wallet.balance < amount:
+    if sender_wallet_account.balance < amount:
         raise ValueError("Insufficient funds in sender's wallet.")
     
-    sender_wallet.balance -= amount
-    receiver_wallet.balance += amount
+    sender_wallet_account.balance -= amount
+    receiver_wallet_account.balance += amount
     
-    sender_wallet.history.append(f'Transferred {amount} to {receiver_wallet.wallet_id}')
-    receiver_wallet.history.append(f'Received {amount} from {sender_wallet.wallet_id}')
+    sender_wallet_account.history.append(f'Transferred {amount} to {receiver_wallet_account.wallet_id}')
+    receiver_wallet_account.history.append(f'Received {amount} from {sender_wallet_account.wallet_id}')
     
-    return sender_wallet.balance, receiver_wallet.balance
+    return sender_wallet_account.balance, receiver_wallet_account.balance
